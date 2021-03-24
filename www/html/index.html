@@ -2,83 +2,93 @@
  <head>
   <title>Task Timer</title>
   <style>
-        .start {
-	  display: inline-block;
-	  border-radius: 4px;
-	  background-color: #f4511e;
-	  border: none;
-	  color: #FFFFFF;
-	  text-align: center;
-	  font-size: 28px;
-	  padding: 20px;
-	  width: 200px;
-	  transition: all 0.5s;
-	  cursor: pointer;
-	  margin: 5px;
+	p {
+		font-family: Arial, Helvetica, sans-serif;
+		color: #bebebe;
+		font-weight: bold;
+	}
+
+	body {
+		background-color: #232323;
+	}
+
+	.start {
+		display: inline-block;
+		border-radius: 4px;
+		background-color: #f4511e;
+		border: none;
+		color: #FFFFFF;
+		text-align: center;
+		font-size: 28px;
+		padding: 20px;
+		width: 200px;
+		transition: all 0.5s;
+		cursor: pointer;
+		margin: 5px;
 	}
 
 	.start span {
-	  cursor: pointer;
-	  display: inline-block;
-	  position: relative;
-	  transition: 0.5s;
+		cursor: pointer;
+		display: inline-block;
+		position: relative;
+		transition: 0.5s;
 	}
 
 	.start span:after {
-	  content: '\00bb';
-	  position: absolute;
-	  opacity: 0;
-	  top: 0;
-	  right: -20px;
-	  transition: 0.5s;
+		content: '\00bb';
+		position: absolute;
+		opacity: 0;
+		top: 0;
+		right: -20px;
+		transition: 0.5s;
 	}
 
 	.start:hover span {
-	  padding-right: 25px;
+		padding-right: 25px;
 	}
 
 	.start:hover span:after {
-	  opacity: 1;
-	  right: 0;
+		opacity: 1;
+		right: 0;
 	}
-        .stop {
-	  display: inline-block;
-	  border-radius: 4px;
-	  background-color: #f4511e;
-	  border: none;
-	  color: #FFFFFF;
-	  text-align: center;
-	  font-size: 28px;
-	  padding: 20px;
-	  width: 200px;
-	  transition: all 0.5s;
-	  cursor: pointer;
-	  margin: 5px;
+	.stop {
+		display: inline-block;
+		border-radius: 4px;
+		background-color: #f4511e;
+		border: none;
+		color: #FFFFFF;
+		text-align: center;
+		font-size: 28px;
+		padding: 20px;
+		width: 200px;
+		transition: all 0.5s;
+		cursor: pointer;
+		margin: 5px;
 	}
 
 	.stop span {
-	  cursor: pointer;
-	  display: inline-block;
-	  position: relative;
-	  transition: 0.5s;
+		cursor: pointer;
+		display: inline-block;
+		position: relative;
+		transition: 0.5s;
 	}
 
 	.stop span:after {
-	  content: '\24e7';
-	  position: absolute;
-	  opacity: 0;
-	  top: 0;
-	  right: -20px;
-	  transition: 0.5s;
+		content: '\24e7';
+		position: absolute;
+		opacity: 0;
+		top: 0;
+		right: -20px;
+		transition: 0.5s;
 	}
 
 	.stop:hover span {
-	  padding-right: 25px;
+		padding-right: 25px;
 	}
 
 	.stop:hover span:after {
-	  opacity: 1;
-	  right: 0;
+		opacity: 1;
+		right: 0;
 	}
   </style>
  </head>
