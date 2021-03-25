@@ -39,10 +39,13 @@ def displayThreadRun():
 		sphd.rotate(180)
 
 		while not done:
-			if start:
-				nextTime = datetime.datetime.now() + blockDelta
-				start = False
+
 			currTime = datetime.datetime.now()
+
+			if start:
+				nextTime = currTime + blockDelta
+				start = False
+
 			if currTime > nextTime:
 				start = True
 			else:
