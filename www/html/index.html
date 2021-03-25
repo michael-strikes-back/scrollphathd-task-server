@@ -1,106 +1,28 @@
 <html>
- <head>
-  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-  <meta content="utf-8" http-equiv="encoding">
-  <title>Task Timer</title>
-  <style>
-	p {
-		font-family: Arial, Helvetica, sans-serif;
-		color: #bebebe;
-		font-weight: bold;
-	}
-
-	body {
-		background-color: #232323;
-	}
-
-	.start {
-		display: inline-block;
-		border-radius: 4px;
-		background-color: #f4511e;
-		border: none;
-		color: #FFFFFF;
-		text-align: center;
-		font-size: 28px;
-		padding: 20px;
-		width: 200px;
-		transition: all 0.5s;
-		cursor: pointer;
-		margin: 5px;
-	}
-
-	.start span {
-		cursor: pointer;
-		display: inline-block;
-		position: relative;
-		transition: 0.5s;
-	}
-
-	.start span:after {
-		content: '\00bb';
-		position: absolute;
-		opacity: 0;
-		top: 0;
-		right: -20px;
-		transition: 0.5s;
-	}
-
-	.start:hover span {
-		padding-right: 25px;
-	}
-
-	.start:hover span:after {
-		opacity: 1;
-		right: 0;
-	}
-	.stop {
-		display: inline-block;
-		border-radius: 4px;
-		background-color: #f4511e;
-		border: none;
-		color: #FFFFFF;
-		text-align: center;
-		font-size: 28px;
-		padding: 20px;
-		width: 200px;
-		transition: all 0.5s;
-		cursor: pointer;
-		margin: 5px;
-	}
-
-	.stop span {
-		cursor: pointer;
-		display: inline-block;
-		position: relative;
-		transition: 0.5s;
-	}
-
-	.stop span:after {
-		content: '\24e7';
-		position: absolute;
-		opacity: 0;
-		top: 0;
-		right: -20px;
-		transition: 0.5s;
-	}
-
-	.stop:hover span {
-		padding-right: 25px;
-	}
-
-	.stop:hover span:after {
-		opacity: 1;
-		right: 0;
-	}
-  </style>
- </head>
- <body>
-  <p>Click below to start or stop a task block. Once started, tasks will repeat endlessly.</p>
-  <form action="cgi-bin/start.cgi" method="post">
-   <button class="start" type="submit"><span>Start </span></button>
-  </form>
-  <form action="cgi-bin/stop.cgi" method="post">
-   <button class="stop" type="submit"><span>Stop </span></button>
-  </form>
- </body>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<meta charset="utf-8">
+		<title>Task Timer</title>
+		<link rel="stylesheet" href="zenburn.css">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			<p>Click below to start or stop a task block. Once started, tasks will repeat endlessly.</p>
+			<form action="cgi-bin/start.cgi" method="post">
+				<button class="start" type="submit"><span>Start </span></button>
+			</form>
+			<form action="cgi-bin/stop.cgi" method="post">
+				<button class="stop" type="submit"><span>Stop </span></button>
+			</form>
+			<label for="log">Add your tasks below:</label>
+			<br>
+			<form>
+				<textarea id="log" rows="30" cols="60" name="text" placeholder="Log your schedule here...">
+				</textarea>
+			</form>
+		</div>
+	</body>
+	<script src="main.js"></script>
 </html>
