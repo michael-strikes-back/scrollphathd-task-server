@@ -10,8 +10,10 @@
 	<body>
 		<div class="wrapper">
 			<p>Click below to start or stop a task block. Once started, tasks will repeat endlessly.</p>
-			<form action="cgi-bin/start.cgi" method="post">
-				<button class="start" type="submit"><span>Start </span></button>
+			<form id="startForm" action="cgi-bin/start.cgi" method="post">
+				<input id="startMessage" type="hidden" name="message" />
+				<button onclick="doStart();" class="start"><span>Start </span></button>
+				<!-- button onclick="doStart();" class="start" type="submit"><span>Start </span></button -->
 			</form>
 			<form action="cgi-bin/stop.cgi" method="post">
 				<button class="stop" type="submit"><span>Stop </span></button>

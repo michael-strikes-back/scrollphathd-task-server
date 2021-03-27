@@ -1,10 +1,12 @@
 
-var textForm = document.getElementById('log');
+function doStart() {
+	const form = document.getElementById('startForm').value
 
-if(!localStorage.getItem('log')) {
-	populateStorage();
-} else {
-	assignLogFromStorage();
+	var messageText = document.getElementById('log').value
+	messageText = messageText.split('\n')[0]
+	document.getElementById('startMessage').value = messageText
+
+	form.submit()
 }
 
 function populateStorage() {
@@ -19,5 +21,12 @@ function assignLogFromStorage() {
 	  document.getElementById('log').value = currentLogValue;
 }
 
+var textForm = document.getElementById('log');
+
+if(!localStorage.getItem('log')) {
+	populateStorage();
+} else {
+	assignLogFromStorage();
+}
 textForm.onchange = populateStorage;
 
