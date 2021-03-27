@@ -27,7 +27,6 @@ def displayThreadRun():
 
     # note, this doesn't account for delays in sphd
     frames_per_second= 30
-    space_delay_seconds= 0.5
 
     nextTime = None
     previousTextToDisplay = ''
@@ -36,7 +35,6 @@ def displayThreadRun():
     messageStartTime = None
 
     frame_delay_seconds= 1.0/frames_per_second
-    spaces= ' ' * int(space_delay_seconds * frames_per_second)
 
     try:
 
