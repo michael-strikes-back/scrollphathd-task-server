@@ -14,7 +14,8 @@ start = True
 startMessage = ''
 
 blockDelta = datetime.timedelta(minutes = 25)
-blockDeltaHalf = blockDelta / 2
+# either show a message every 5 minutes, or half of the block
+messageDelta = min(datetime.timedelta(minutes = 5), blockDelta / 2)
 
 ###
 # displayThreadRun
@@ -31,7 +32,6 @@ def displayThreadRun():
     nextTime = None
     previousTextToDisplay = ''
     textToDisplay = ''
-    showingMessage = False
     messageWidth = 0
     messageStartTime = None
 
@@ -50,8 +50,9 @@ def displayThreadRun():
             if start:
                 nextTime = currTime + blockDelta
                 start = False
+                messageWidth = 0
                 if startMessage != None and startMessage != '':
-                    messageStartTime = currTime + blockDeltaHalf
+                    messageStartTime = currTime
                 else:
                     messageStartTime = None
 
@@ -60,10 +61,13 @@ def displayThreadRun():
             elif messageWidth > 0:
                 messageWidth -= 1
                 sphd.scroll()
-            elif messageStartTime != None and currTime > messageStartTime:
-                textToDisplay = startMessage + (' ' * len(startMessage))
+            elif messageStartTime != None and currTime >= messageStartTime:
+                # prep the countdown
                 messageWidth = sphd.display.calculate_string_width(startMessage)
-                messageStartTime = None
+                # schedule next start time
+                messageStartTime = currTime + messageDelta
+                # text, plus some blank time
+                textToDisplay = startMessage + '    '
             else:
                 deltaSeconds = (nextTime - currTime).total_seconds()
                 deltaMinutes = math.ceil(deltaSeconds / 60)
@@ -82,6 +86,7 @@ def displayThreadRun():
 
         sphd.clear()
     except Exception as e:
+        # check i2c group membership for executing user?
         traceback.print_exc(file=sys.stderr)
         done = True 
 
